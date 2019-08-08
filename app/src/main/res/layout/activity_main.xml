@@ -1,18 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".MainActivity"
+    android:background="@color/DarkSeaGreen">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <ImageView
+        android:id="@+id/app_logo"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_marginBottom="230dp" />
+
+    <EditText
+        android:layout_marginTop="-180dp"
+        android:id="@+id/user_name"
+        android:hint="Ad Soyad"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginBottom="20dp"
+        android:textColorLink="@color/DarkSeaGreen"
+        />
+    <EditText
+        android:id="@+id/nick_name"
+        android:hint="Kullanıcı Adı"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        />
+    <EditText
+        android:id="@+id/pass"
+        android:hint="Şifre"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:inputType="textPassword"
+        />
+    <EditText
+        android:id="@+id/re_pass"
+        android:hint="Şifre Tekrar"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:inputType="textPassword"
+        />
+    <Button
+        android:id="@+id/signIn"
+        android:text="Kaydol"
+        android:layout_width="200dp"
+        android:layout_height="70dp"
 
-</android.support.constraint.ConstraintLayout>
+        />
+
+
+
+</LinearLayout>
