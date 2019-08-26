@@ -1,5 +1,7 @@
 package com.example.pala.senatemizlik;
 
+import android.app.ProgressDialog;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -7,6 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import java.io.BufferedReader;
+import java.net.URL;
 
 public class MainActivity extends AppCompatActivity {
     ImageView image;
@@ -22,17 +27,14 @@ public class MainActivity extends AppCompatActivity {
         nickName=findViewById(R.id.nick_name);
         pass = findViewById(R.id.pass);
         passRe = findViewById(R.id.re_pass);
-        signIn = findViewById(R.id.signIn);
-
+        signIn = findViewById(R.id.btnLogin);
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String type = "login";
-                String user_name,password,repassword,nick_name;
-                user_name=userName.getText().toString();
-                password=pass.getText().toString();
-                repassword=passRe.getText().toString();
-                nick_name=nickName.getText().toString();
+                String user_name = userName.getText().toString();
+                String password = pass.getText().toString();
+                String repassword = passRe.getText().toString();
+                String nick_name = nickName.getText().toString();
                 try{
                     if (user_name.equals("") || password.equals("") || repassword.equals("") || nick_name.equals("")){
                         Toast.makeText(MainActivity.this, "Lütfen boş alan bırakmayınız.",
@@ -50,12 +52,8 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, ex+"Hatası ile karşılaşıldı.",
                             Toast.LENGTH_SHORT).show();
                 }
-                BackgroundWorker backgroundWorker = new BackgroundWorker(MainActivity.this);
-                backgroundWorker.execute(type,nick_name,password);
-
             }
         });
-
-
     }
+
 }
